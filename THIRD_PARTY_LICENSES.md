@@ -26,7 +26,7 @@ Abstrack が直接依存している第三者ソフトウェアの一覧です�
 
 PDFium はリポジトリに含めていません。`npm run fetch-pdfium` が [bblanchon/pdfium-binaries](https://github.com/bblanchon/pdfium-binaries) の `chromium/8125` ビルドを `vendor/pdfium/` にダウンロードします。
 
-ダウンロードしたフォルダの `LICENSE` が pdfium-binaries のライセンスです。`licenses/` には、PDFium 本体と、PDFium に含まれるライブラリ（Abseil、AGG、dragonbox、fast_float、FreeType、HarfBuzz、Highway、ICU、Little CMS、libjpeg-turbo、OpenJPEG、libpng、LLVM libc、simdutf、zlib）のライセンスが入っています。インストーラーには、これらが `licenses/pdfium/` として同梱されます。
+PDFium と、PDFium に含まれるライブラリのライセンスは、ダウンロードしたフォルダに入っています。インストーラーには、これらが `licenses/pdfium/` として同梱されます。
 
 ## インストーラーに含まれるもの
 
@@ -36,6 +36,10 @@ Windows のインストーラーは Tauri が NSIS で作るため、インス�
 |---|---|---|
 | [NSIS](https://nsis.sourceforge.io/) | インストーラーとアンインストーラーの本体、プラグイン | Zlib（LZMA 圧縮モジュールは CPL-1.0） |
 | [nsis-tauri-utils](https://github.com/tauri-apps/nsis-tauri-utils) | 更新時の版の比較、インストール後の起動 | MIT OR Apache-2.0 |
+
+## ソースコードの入手先
+
+MPL-2.0 のクレート（cssparser、cssparser-macros、dtoa-short、option-ext、selectors）と NSIS の LZMA 圧縮モジュール（CPL-1.0）は、変更せずに使っています。使っている版のソースコードの URL は、`licenses/` の各ファイルの冒頭にあります。
 
 ## 開発時のみ使用
 
