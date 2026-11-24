@@ -20,7 +20,9 @@ Windows 11、Core i7-10700F、メモリ 32 GB、FHD ディスプレイでの計�
 
 ## インストール
 
-ビルド済みのインストーラーは配布していないため、ソースからビルドします。前提条件は「開発」の節にあります。
+[Releases](https://github.com/tohu-sand/Abstrack/releases/latest) から `Abstrack_<バージョン>_x64-setup.exe` をダウンロードして実行します。未署名なので、実行時に警告が出ます。「詳細情報」→「実行」で進めてください。
+
+ソースからビルドすることもできます。前提条件は「開発」の節にあります。
 
 ```
 npm install
@@ -28,7 +30,7 @@ npm run fetch-pdfium
 npm run tauri build
 ```
 
-`target/release/bundle/nsis/Abstrack_0.1.0_x64-setup.exe` が生成されます。未署名なので、実行時に警告が出ます。「詳細情報」→「実行」で進めてください。
+`target/release/bundle/nsis/` にインストーラーが生成されます。
 
 ## 使い方
 

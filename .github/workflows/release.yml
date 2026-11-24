@@ -1,0 +1,53 @@
+# Builds the Windows installer when a version tag (v0.1.0) is pushed and
+# attaches it to a draft release, which is published by hand after a check.
+# Building on a runner keeps the paths and account name of a personal PC out
+# of the program that is handed out.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-2025
+    timeout-minutes: 60
+    env:
+      # The compiler the local release builds were tested with.
+      RUSTUP_TOOLCHAIN: 1.97.1
+    steps:
+      # Actions are pinned to commits so that a moved tag cannot change what runs here.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - run: rustup toolchain install $env:RUSTUP_TOOLCHAIN --profile minimal
+
+      # The installer is named after this version, and a release under a
+      # different tag would point at the wrong file.
+      - name: Check the version
+        run: |
+          $version = (Get-Content src-tauri/tauri.conf.json -Raw | ConvertFrom-Json).version
+          if ("v$version" -ne $env:GITHUB_REF_NAME) {
+            throw "tag $env:GITHUB_REF_NAME does not match version $version in src-tauri/tauri.conf.json"
+          }
+          "VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - run: npm ci
+      - run: npm run fetch-pdfium
+      - run: npm run tauri build
+
+      - name: Create the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $exe = "target/release/bundle/nsis/Abstrack_${env:VERSION}_x64-setup.exe"
+          $hash = (Get-FileHash $exe -Algorithm SHA256).Hash.ToLower()
+          gh release create $env:GITHUB_REF_NAME $exe --draft --verify-tag --title "Abstrack $env:VERSION" --notes "SHA-256: ``$hash``"

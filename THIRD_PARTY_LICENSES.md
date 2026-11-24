@@ -28,6 +28,15 @@ PDFium はリポジトリに含めていません。`npm run fetch-pdfium` が [
 
 ダウンロードしたフォルダの `LICENSE` が pdfium-binaries のライセンスです。`licenses/` には、PDFium 本体と、PDFium に含まれるライブラリ（Abseil、AGG、dragonbox、fast_float、FreeType、HarfBuzz、Highway、ICU、Little CMS、libjpeg-turbo、OpenJPEG、libpng、LLVM libc、simdutf、zlib）のライセンスが入っています。インストーラーには、これらが `licenses/pdfium/` として同梱されます。
 
+## インストーラーに含まれるもの
+
+Windows のインストーラーは Tauri が NSIS で作るため、インストーラーとアンインストーラーには次のソフトウェアが入ります。
+
+| パッケージ | 用途 | ライセンス |
+|---|---|---|
+| [NSIS](https://nsis.sourceforge.io/) | インストーラーとアンインストーラーの本体、プラグイン | Zlib（LZMA 圧縮モジュールは CPL-1.0） |
+| [nsis-tauri-utils](https://github.com/tauri-apps/nsis-tauri-utils) | 更新時の版の比較、インストール後の起動 | MIT OR Apache-2.0 |
+
 ## 開発時のみ使用
 
-配布物には含まれません。TypeScript、svelte-check、`@sveltejs/vite-plugin-svelte`、`@tauri-apps/cli`（`package.json`）、qpdf。
+配布物には含まれません。TypeScript、svelte-check、`@sveltejs/vite-plugin-svelte`、`@tauri-apps/cli`（`package.json`）、qpdf、リリースのビルドに使う `actions/checkout` と `actions/setup-node`。
