@@ -1,0 +1,72 @@
+[
+  {
+    "file": "abstract-2col.pdf",
+    "category": "段またぎ",
+    "from": { "page": 1, "text": "式の番号は" },
+    "to": { "page": 1, "text": "段の端の誤り" },
+    "expect": "式の番号は右端にそろえ，括弧で囲んで示している．xy図1 文字の枠と座標軸3. 結果行の長さを増やすと，段の端の誤り"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "ページまたぎ",
+    "from": { "page": 1, "text": "ページをまたぐ指摘" },
+    "to": { "page": 2, "text": "交互に実行すると" },
+    "expect": "ページをまたぐ指摘の確認用に，この段落は次のページへ続く文章として扱う．続きの文章である．選択と注釈付けを交互に実行すると"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "下付き文字を含む語",
+    "from": { "page": 1, "text": "Nα=180" },
+    "to": { "page": 1, "text": "Nα=180" },
+    "expect": "Nα = 180"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "下付き文字を含む語",
+    "from": { "page": 1, "text": "HtCAP" },
+    "to": { "page": 1, "text": "HtCAP" },
+    "expect": "HtCAP"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "下付き文字を含む語",
+    "from": { "page": 1, "text": "Lw*" },
+    "to": { "page": 1, "text": "Lw*=0.5" },
+    "expect": "Lw* = 0.5"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "式中の短い記号",
+    "from": { "page": 1, "text": "Σwi=1", "part": [0, 1] },
+    "to": { "page": 1, "text": "Σwi=1", "part": [0, 1] },
+    "expect": "Σ"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "式中の短い記号",
+    "from": { "page": 1, "text": "ri=ci/ni−k−1ei2", "part": [8, 1] },
+    "to": { "page": 1, "text": "ri=ci/ni−k−1ei2", "part": [8, 1] },
+    "expect": "−"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "図キャプション",
+    "from": { "page": 1, "text": "図1" },
+    "to": { "page": 1, "text": "座標軸" },
+    "expect": "図1 文字の枠と座標軸"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "ページ上部の一段組から二段組への切り替わり",
+    "from": { "page": 1, "text": "山田太郎" },
+    "to": { "page": 1, "text": "本要旨の記載内容" },
+    "expect": "山田 太郎（架空大学），佐藤 花子（架空大学）1. 緒言本要旨の記載内容"
+  },
+  {
+    "file": "abstract-2col.pdf",
+    "category": "余白と段間からの吸着",
+    "from": { "page": 1, "text": "評価する．文字の数", "dx": -8 },
+    "to": { "page": 1, "text": "ページ下", "dx": 3 },
+    "expect": "評価する．文字の数は見出し部，本文の左段，ページ下"
+  }
+]

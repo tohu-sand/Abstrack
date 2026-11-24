@@ -1,0 +1,72 @@
+:root {
+  color-scheme: dark;
+
+  --font-ui: "Segoe UI", "Yu Gothic UI", -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Meiryo UI", sans-serif;
+  --font-size-ui: 12px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+
+  --radius: 2px;
+  --toolbar-h: 32px;
+  --statusbar-h: 24px;
+
+  --bg: #28292b;
+  --bg-panel: #202123;
+  --bg-canvas: #171819;
+  --fg: #e6e6e6;
+  --fg-muted: #aaa9a8;
+  --line: #38393b;
+  --hover: rgb(255 255 255 / 6%);
+  --accent: #83abda;
+  --error: #f2877f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-size: var(--font-size-ui);
+  line-height: 1.4;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  height: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.comment-number {
+  display: inline-block;
+  height: 16px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--annotation-color, #888) 30%, #3e4043);
+  color: color-mix(in srgb, var(--annotation-color, #aaa) 28%, white);
+  font: 600 11px/16px var(--font-ui);
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}

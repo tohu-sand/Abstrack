@@ -1,0 +1,15 @@
+{
+  "bundle": {
+    "windows": {
+      "nsis": {
+        "installerHooks": "pdf-association.nsh"
+      }
+    },
+    "resources": {
+      "../vendor/pdfium/win-x64/bin/pdfium.dll": "pdfium.dll",
+      "../vendor/pdfium/win-x64/LICENSE": "licenses/pdfium/LICENSE",
+      "../vendor/pdfium/win-x64/licenses/": "licenses/pdfium/",
+      "../licenses/THIRD-PARTY-NOTICES-windows.txt": "licenses/THIRD-PARTY-NOTICES.txt"
+    }
+  }
+}

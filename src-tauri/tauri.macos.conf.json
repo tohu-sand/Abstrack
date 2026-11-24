@@ -1,0 +1,13 @@
+{
+  "bundle": {
+    "targets": ["dmg"],
+    "macOS": {
+      "frameworks": ["../vendor/pdfium/mac-arm64/lib/libpdfium.dylib"]
+    },
+    "resources": {
+      "../vendor/pdfium/mac-arm64/LICENSE": "licenses/pdfium/LICENSE",
+      "../vendor/pdfium/mac-arm64/licenses/": "licenses/pdfium/",
+      "../licenses/THIRD-PARTY-NOTICES-macos.txt": "licenses/THIRD-PARTY-NOTICES.txt"
+    }
+  }
+}
