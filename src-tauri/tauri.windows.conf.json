@@ -7,6 +7,7 @@
     },
     "resources": {
       "../vendor/pdfium/win-x64/bin/pdfium.dll": "pdfium.dll",
+      "icons/pdf.ico": "pdf.ico",
       "../vendor/pdfium/win-x64/LICENSE": "licenses/pdfium/LICENSE",
       "../vendor/pdfium/win-x64/licenses/": "licenses/pdfium/",
       "../licenses/THIRD-PARTY-NOTICES-windows.txt": "licenses/THIRD-PARTY-NOTICES.txt"
